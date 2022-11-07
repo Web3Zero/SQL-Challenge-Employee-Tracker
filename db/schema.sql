@@ -4,14 +4,14 @@ CREATE SCHEMA `employee_cms_hw` ;
 
 CREATE TABLE `employee_cms_hw`.`departments` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(30) NOT NULL,
   PRIMARY KEY (`id`));
 
 --   Create roles table
 
 CREATE TABLE `employee_cms_hw`.`roles` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(255) NOT NULL,
+  `title` VARCHAR(30) NOT NULL,
   `salary` DECIMAL NULL DEFAULT 0,
   `department_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`));
@@ -32,8 +32,8 @@ ADD CONSTRAINT `fk_roles_1`
   -- employee table
 CREATE TABLE `employee_cms_hw`.`employees` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `first_name` VARCHAR(255) NOT NULL,
-  `last_name` VARCHAR(255) NOT NULL,
+  `first_name` VARCHAR(30) NOT NULL,
+  `last_name` VARCHAR(30) NOT NULL,
   `role_id` INT UNSIGNED NOT NULL,
   `manager_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`));
