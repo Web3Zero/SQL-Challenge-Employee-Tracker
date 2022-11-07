@@ -13,8 +13,10 @@ CREATE TABLE `employee_cms_hw`.`roles` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
   `salary` DECIMAL NULL DEFAULT 0,
-  `department_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`, `department_id`));
+  `department_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`));
+--   `department_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+--   PRIMARY KEY (`id`, `department_id`));
 
 -- link roles id to department id
 ALTER TABLE `employee_cms_hw`.`roles` 
@@ -35,3 +37,20 @@ CREATE TABLE `employee_cms_hw`.`employees` (
   `role_id` INT UNSIGNED NOT NULL,
   `manager_id` INT UNSIGNED NULL,
   PRIMARY KEY (`id`));
+
+-- 
+  ALTER TABLE `employee_cms_hw`.`employees` 
+ADD INDEX `fk_emplopyees_1_idx` (`role_id` ASC) VISIBLE,
+ADD INDEX `fk_employees_2_idx` (`manager_id` ASC) VISIBLE;
+;
+ALTER TABLE `employee_cms_hw`.`employees` 
+ADD CONSTRAINT `fk_emplopyees_1`
+  FOREIGN KEY (`role_id`)
+  REFERENCES `employee_cms_hw`.`roles` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_employees_2`
+  FOREIGN KEY (`manager_id`)
+  REFERENCES `employee_cms_hw`.`employees` (`id`)
+  ON DELETE SET NULL
+  ON UPDATE NO ACTION;
