@@ -3,9 +3,11 @@
 function getDepartment() {
 const query = "SELECT * FROM departments";
 
-const connection = await connect();
+const connection = connect();
+// const connection = await connect();
 
-const [rows, cols] = await connection.query(query);
+const [rows, cols] = connection.query(query);
+// const [rows, cols] = await connection.query(query);
 
 return rows;
 
@@ -25,6 +27,6 @@ async function createDepartment(name) {
 }
 
 module.exports = {
-    viewDepartment,
+    getDepartment,
     createDepartment,
 }

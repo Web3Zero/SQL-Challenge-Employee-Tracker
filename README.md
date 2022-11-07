@@ -12,4 +12,6 @@ Created a connect JS file to manage the connection with the MySQL database.
 
 <!-- Roadblock -->
 I have installed the NPM packages including MySQL2. 
-When I run node app.js there is an error relating to inquirer.prompt which I can't seem to get past. 
+When I run node app.js there is an error in my department.js which I can't seem to get past. 
+
+Link to video walk through which still has errors preventing it to run properly: https://drive.google.com/file/d/1IZgqf7YrBSrtvbAtIvsFYnId2fJUnJsW/view
